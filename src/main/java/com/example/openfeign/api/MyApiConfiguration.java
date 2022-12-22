@@ -11,16 +11,13 @@ import java.lang.reflect.Type;
 
 public class MyApiConfiguration {
     @Bean
-    @DependsOn("feignClientsConfiguration")
     public Encoder myEncoder() {
         return new Encoder() {
             @Override
             public void encode(Object object, Type bodyType, RequestTemplate template) throws EncodeException {
                 System.out.println("trigger myEncoder#encode");
-                // new SpringEncoder()
             }
         };
-
     }
 
 }
